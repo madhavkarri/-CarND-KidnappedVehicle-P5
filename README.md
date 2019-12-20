@@ -31,6 +31,6 @@ Steps to implement a particle filter for localizing an autonomous vehicle. The c
 
 Initialization
 
+At the initialization step, estimate position from GPS input. The subsequent steps in the process would refine this estimate to localize vehicle.
 ![][image2]
 
-At the initialization step, estimate position from GPS input. The subsequent steps in the process would refine this estimate to localize vehicle.
