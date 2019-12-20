@@ -12,12 +12,21 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 
 [//]: # (Image References)
 
-[image1]: ./Writeup_IV/.png ""
+[image1]: ./Writeup_IV/PF_AlgorithmFlowChart.png "PF_AlgorithmFlowChart"
 [image2]: ./Writeup_IV/.gif ""
 [image3]: ./Writeup_IV/.gif ""
 
 #
 Particle filter algorithm process and implementation details
+
+Particle Filter Algorithm Steps and Inputs
+
+The flowchart below represents the steps of the particle filter algorithm as well as its inputs.
+
 ![][image1]
+
+Code
+
+Steps to implement a particle filter for localizing an autonomous vehicle. The code steps correspond to the steps in the algorithm flow chart, initialization, prediction, particle weight updates, and resampling.
 
 
