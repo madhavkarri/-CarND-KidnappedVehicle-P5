@@ -9,7 +9,6 @@ Overview
 Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map, initial localization information (analogous to GPS data), and at each time step observation and control data.
 
 #
-### The Project
 
 [//]: # (Image References)
 
