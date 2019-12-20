@@ -27,6 +27,7 @@ Steps in Particle Filter Algorithm
 - Resampling
 - New Particle Set
 
+#
 Initialization
 
 The most practical way to initialize particles and generate real time output, is to make an initial estimate using GPS input. As with all sensor based operations, this step is impacted by noise.
