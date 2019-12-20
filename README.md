@@ -18,6 +18,7 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 
 #
 A brief overview of Particle filter algorithm process and implementation details can be accessed at [Link](./PFA.md)
+
 ![][image1]
 Steps in Particle Filter Algorithm
 - Initialization
@@ -28,3 +29,4 @@ Steps in Particle Filter Algorithm
 
 Initialization
 
+The most practical way to initialize particles and generate real time output, is to make an initial estimate using GPS input. As with all sensor based operations, this step is impacted by noise.
