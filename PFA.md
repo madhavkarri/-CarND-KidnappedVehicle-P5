@@ -5,6 +5,7 @@
 [image1]: ./Writeup_IV/PF_AlgorithmFlowChart.png "PF_AlgorithmFlowChart"
 [image2]: ./Writeup_IV/PF_Initialization.png "PF_Initialization"
 [image3]: ./Writeup_IV/PF_Prediction.png "PF_Prediction"
+[image4]: ./Writeup_IV/PF_Update.png "PF_Update"
 
 #
 Particle filter algorithm process and implementation details
@@ -28,3 +29,8 @@ Prediction
 
 During the prediction step, add control input (yaw rate & velocity) for all particles
 ![][image3]
+
+Update
+
+During the update step, update particle weights using map landmark positions and feature measurements.
+![][image4]
