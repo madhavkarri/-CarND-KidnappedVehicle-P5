@@ -1,6 +1,5 @@
 # **Self-Driving Car**
-# **Project: Kidnapped Vehicle
-Sparse Localization Using Particle Filter**
+# **Project: Kidnapped Vehicle (Sparse Localization Using Particle Filter)**
 
 ## MK
 
