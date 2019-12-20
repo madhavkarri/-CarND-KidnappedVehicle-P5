@@ -6,6 +6,7 @@
 [image2]: ./Writeup_IV/PF_Initialization.png "PF_Initialization"
 [image3]: ./Writeup_IV/PF_Prediction.png "PF_Prediction"
 [image4]: ./Writeup_IV/PF_Update.png "PF_Update"
+[image5]: ./Writeup_IV/PF_Resampling.png "PF_Resampling"
 
 #
 Particle filter algorithm process and implementation details
@@ -37,3 +38,11 @@ Update
 
 During the update step, update particle weights using map landmark positions and feature measurements.
 ![][image4]
+
+# 
+Resampling
+
+During resampling, resample M times (M is range of 0 to length_of_particleArray) drawing a particle i (i is the particle index) proportional to its weight.
+![][image5]
+
+
