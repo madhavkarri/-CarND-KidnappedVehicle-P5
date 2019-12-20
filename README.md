@@ -30,3 +30,5 @@ Steps in Particle Filter Algorithm
 Initialization
 
 The most practical way to initialize particles and generate real time output, is to make an initial estimate using GPS input. As with all sensor based operations, this step is impacted by noise.
+
+Particles initialization was implemented by sampling a Gaussian distribution, taking into account Gaussian sensor noise around the initial GPS position and heading estimates. Using the C++ standard library normal distribution and C++ standard library random engine functions to sample positions around GPS measurements.
