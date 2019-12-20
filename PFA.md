@@ -50,5 +50,5 @@ During resampling, resample M times (M is range of 0 to length_of_particleArray)
 New Particle Set
 
 The new set of particles represents the Bayes filter posterior probability. The final output would be a refined estimate of the vehicles position based on input evidence.
-![][image6]
+![][image6] 
 
