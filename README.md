@@ -30,5 +30,7 @@ Code
 Steps to implement a particle filter for localizing an autonomous vehicle. The code steps correspond to the steps in the algorithm flow chart, initialization, prediction, particle weight updates, and resampling.
 
 Initialization
+
 ![][image2]
+
 At the initialization step, estimate position from GPS input. The subsequent steps in the process would refine this estimate to localize vehicle.
