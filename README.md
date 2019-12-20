@@ -13,7 +13,7 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 [//]: # (Image References)
 
 [image1]: ./Writeup_IV/PF_AlgorithmFlowChart.png "PF_AlgorithmFlowChart"
-[image2]: ./Writeup_IV/PF_Initialization.png "Initialization"
+[image2]: ./Writeup_IV/PF_Initialization.png "PF_Initialization"
 [image3]: ./Writeup_IV/.png ""
 
 #
