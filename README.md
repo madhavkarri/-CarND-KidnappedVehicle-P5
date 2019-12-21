@@ -56,3 +56,18 @@ One of the techniques is the nearest neighborhood. Below are the pros and cons o
 Update Step
 
 Incorporated velocity and yaw rate measurement inputs into the filter. Next would be to update particle weights based on LIDAR and RADAR readings of landmarks.
+
+The landmark measurements are used to compute the update step. Instead of the feature measurements directly affecting the prediction of the state of the car, the measurements will instead inform the weight of each particle. One way to update the weights of the particles is to use the multivariate Gaussian probability density function for each measurement and combine the likelihoods of all the measurements by taking their product.
+
+This function tells how likely a set of landmark measurements, given predicted state of the car and the assumption that the sensors have Gaussian noise. Under the assumption, each landmark measurement is independent, therefore take the product of the likelihoods over all measurements.
+
+Here, `x_i` represents the ith landmark measurement for one particular particle. `mu_i` represents the predicted measurement for the map landmark corresponding to the ith measurement. `m` is the total number of measurements for one particle.
+
+And finally, sigma is the covariance of the measurement.
+
+The covariance matrix sigma is a symmetric square matrix that contains the variance, or uncertainty, of each variable in the sensor measurement, as well as the covariance, or correlation, between these variables. In the case of lidar, the variables in question would be the `x` and `y` position of the landmark and vehicle coordinates. The diagonal terms of the covariance matrix are the variance of each variable, which is the standard deviation of the variable squared.
+
+Think of the covariance matrix as an inverse matrix of weights. The smaller the diagonal term for a certain variable, the more you can trust this variable in the measurement and the higher the weight we can put on it. The off diagonal terms of the covariance matrix represent the correlation between the two variables.
+
+For the project, it was assumed, variables in the sensor measurement are independent and therefore the off diagonal terms are 0. However, this is often not the case in practice.
+After weights update for each particle, resample the particles with probability proportional to these weights.
