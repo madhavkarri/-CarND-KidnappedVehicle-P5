@@ -14,7 +14,7 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 
 [image1]: ./Writeup_IV/PF_AlgorithmFlowChart.png "PF_AlgorithmFlowChart"
 [image2]: ./Writeup_IV/PF_Initialization.png "PF_Initialization"
-[image3]: ./Writeup_IV/.png ""
+[image3]: ./Writeup_IV/PF_MUEqs.png "PF_MUEqs"
 
 #
 A brief overview of Particle filter algorithm process and implementation details can be accessed at [Link](./PFA.md)
@@ -38,3 +38,6 @@ Particles initialization was implemented by sampling a Gaussian distribution, ta
 Prediction Step
 
 Post particles initialization, next step would be to predict the vehicle's position. Using motion models predict where the vehicle would be at the next time step, by updating based on yaw rate and velocity, while accounting for Gaussian sensor noise.
+
+Equations for updating x, y and the yaw angle when the yaw rate is not equal to zero:
+![][image3]
