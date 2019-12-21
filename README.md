@@ -16,6 +16,8 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 [image2]: ./Writeup_IV/PF_Initialization.png "PF_Initialization"
 [image3]: ./Writeup_IV/PF_MUEqs.png "PF_MUEqs"
 [image4]: ./Writeup_IV/PF_NNDAPC.png "PF_NNDAPC"
+[image5]: ./Writeup_IV/PF_UpdateStep.png "PF_UpdateStep"
+[image6]: ./Writeup_IV/PF_MVGD.png "PF_MVGD"
 
 #
 A brief overview of Particle filter algorithm process and implementation details can be accessed at [Link](./PFA.md)
@@ -57,7 +59,11 @@ Update Step
 
 Incorporated velocity and yaw rate measurement inputs into the filter. Next would be to update particle weights based on LIDAR and RADAR readings of landmarks.
 
+![][image5]
+
 The landmark measurements are used to compute the update step. Instead of the feature measurements directly affecting the prediction of the state of the car, the measurements will instead inform the weight of each particle. One way to update the weights of the particles is to use the multivariate Gaussian probability density function for each measurement and combine the likelihoods of all the measurements by taking their product.
+
+![][image6]
 
 This function tells how likely a set of landmark measurements, given predicted state of the car and the assumption that the sensors have Gaussian noise. Under the assumption, each landmark measurement is independent, therefore take the product of the likelihoods over all measurements.
 
