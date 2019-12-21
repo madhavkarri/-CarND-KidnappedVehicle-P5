@@ -49,4 +49,10 @@ Data Association
 Prior to using landmark measurements of the objects around the vehicle to update the belief of vehicle position, need to address the data association problem. Data association is the problem of matching landmark measurements to objects in the real world, like map landmarks.
 
 One of the techniques is the nearest neighborhood. Below are the pros and cons of the nearest neighborhood technique
+
 ![][image4]
+
+#
+Update Step
+
+Incorporated velocity and yaw rate measurement inputs into the filter. Next would be to update particle weights based on LIDAR and RADAR readings of landmarks.
