@@ -15,6 +15,7 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 [image1]: ./Writeup_IV/PF_AlgorithmFlowChart.png "PF_AlgorithmFlowChart"
 [image2]: ./Writeup_IV/PF_Initialization.png "PF_Initialization"
 [image3]: ./Writeup_IV/PF_MUEqs.png "PF_MUEqs"
+[image4]: ./Writeup_IV/PF_NNDAPC.png "PF_NNDAPC"
 
 #
 A brief overview of Particle filter algorithm process and implementation details can be accessed at [Link](./PFA.md)
@@ -41,3 +42,11 @@ Post particles initialization, next step would be to predict the vehicle's posit
 
 Equations for updating x, y and the yaw angle when the yaw rate is not equal to zero:
 ![][image3]
+
+#
+Data Association
+
+Prior to using landmark measurements of the objects around the vehicle to update the belief of vehicle position, need to address the data association problem. Data association is the problem of matching landmark measurements to objects in the real world, like map landmarks.
+
+One of the techniques is the nearest neighborhood. Below are the pros and cons of the nearest neighborhood technique
+![][image4]
