@@ -18,6 +18,10 @@ Implemented a 2 dimensional particle filter in C++. Particle filter inputs: map,
 [image4]: ./Writeup_IV/PF_NNDAPC.png "PF_NNDAPC"
 [image5]: ./Writeup_IV/PF_UpdateStep.png "PF_UpdateStep"
 [image6]: ./Writeup_IV/PF_MVGD.png "PF_MVGD"
+[image7]: ./Writeup_IV/CarND_PFPO.gif "CarND_PFPO"
+
+Kidnapped Vehicle (Sparse Localization Using Particle Filter) Output
+![][image7]
 
 #
 A brief overview of Particle filter algorithm process and implementation details can be accessed at [Link](./PFA.md)
