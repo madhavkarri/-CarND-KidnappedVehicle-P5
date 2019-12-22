@@ -95,17 +95,14 @@ Finally, after the particle filter has gone through the entire driving sequence,
 #
 [`particle_filter.cpp`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp)
 
-Implemented most of the particle filter code in `particlefilter.cpp`. This file contains all of the implementations of the functions of the particle filter class.
+Implemented most of the particle filter code in `particle_filter.cpp`. This file contains all of the implementations of the functions of the particle filter class.
 
 [`init`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L30-L67)
 
-This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
-
-It then samples from a Gaussian distribution centered around these measurements to initialize all the particles. It initializes all particle weights to 1.
-
-For further details, access files `particle_struct` and `particle_filter.h`
-
-The particle filter class has an internal structure of particles that is updated. So nothing is returned from this function.
+- This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
+- Samples from a Gaussian distribution centered around these measurements to initialize all the particles. It initializes all particle weights to 1.
+- For further details, access files `particle_struct` and `particle_filter.h`
+- The particle filter class has an internal structure of particles that is updated. So nothing is returned from this function.
 
 `prediction`
 
