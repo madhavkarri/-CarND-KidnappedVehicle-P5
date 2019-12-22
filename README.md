@@ -97,7 +97,7 @@ Finally, after the particle filter has gone through the entire driving sequence,
 
 Implemented most of the particle filter code in `particlefilter.cpp`. This file contains all of the implementations of the functions of the particle filter class.
 
-[`init`](./CarND-Kidnapped-Vehicle-Project/src/particlefilter.cpp/#L30-L67)
+[`init`](./CarND-Kidnapped-Vehicle-Project/src/particlefilter.cpp#L30-L67)
 
 This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
 
