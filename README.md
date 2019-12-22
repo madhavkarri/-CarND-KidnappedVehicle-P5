@@ -99,30 +99,36 @@ Implemented most of the particle filter code in `particle_filter.cpp`. This file
 
 [`init`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L30-L67)
 
-- This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
+- This function takes as input an initial heading estimate and an array of uncertainties for these measurements.
 - Samples from a Gaussian distribution centered around these measurements to initialize all the particles. It initializes all particle weights to 1.
-- For further details, access files `particle_struct` and `particle_filter.h`
+- For further details, access file [`particle_filter.h`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.h)
 - The particle filter class has an internal structure of particles that is updated. So nothing is returned from this function.
 
-`prediction`
+[`prediction`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L69-L109)
 
-This function takes as input the amount of time between time steps, the velocity and yaw rate measurement uncertainties, and the current time step velocity and yaw rate measurements. Using these measurements, it updated each particle's position estimates and accounted for sensor noise by adding Gaussian noise. Added Gaussian noise by sampling from a Gaussion distribution with mean equal to the updated particle position, and standard deviation equal to the standard deviation of the measurements.
+- This function takes as input the amount of time between time steps, the velocity and yaw rate measurement uncertainties, and the current time step velocity and yaw rate measurements. 
+- Using these measurements, it updated each particle's position estimates by accounting for sensor noise by adding Gaussian noise. 
+- Added Gaussian noise by sampling from a Gaussion distribution with mean equal to the updated particle position, and standard deviation equal to the standard deviation of the measurements.
 
-data association
-The data association function here takes as input two vectors of landmark obs objects. Access the definition for this struct in helperfunctions.h. The first vector is the prediction measurements between one particular particle and all of the map landmarks within sensor range. Th other vector here is the actual landmark measurements gathered from the LIDAR. This function accomplishes nearest neighbor data association and assign each sensor observation the map landmark ID associated with it.
+[`dataAssociation`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L111-L138)
+- The data association function takes as input two vectors of landmark obs objects. 
+- Access the definition for this struct in helperfunctions.h. 
+- The first vector is the prediction measurements between one particular particle and all of the map landmarks within sensor range. 
+- The other vector is the actual landmark measurements gathered from the LIDAR. 
+- This function accomplishes nearest neighbor data association and assign each sensor observation the map landmark ID associated with it.
 
-update weights function
+[`updateWeights`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L140-L256)
 
-This function takes the range of the sensor, the landmark measurement uncertainties, a vector of landmark measurements, and the map landmarks as input.
+- This function takes the range of the sensor, the landmark measurement uncertainties, a vector of landmark measurements, and the map landmarks as input.
+- The first step was to predict measurements to all the map landmarks within sensor range for each particle. 
+- Use the predicted landmark measurements and data association function to associate the sensor measurements to map landmarks. These associations would be necessary to calculate the new weight of each particle by using the multivariate Gaussian probability density function. 
+- Normalize the weights so that they would be in the range 0 to 1. Use these weights as probabilities for resampling.
 
-The first step was to predict measurements to all the map landmarks within sensor range for each particle. Use the predicted landmark measurements, and data association function to associate the sensor measurements to map landmarks. These associations would be necessary to calculate the new weight of each particle by using the multivariate Gaussian probability density function. As a final step, to normalize these weights so that they would be in the range 0 to 1. Use these weights as probabilities for resampling.
+[`resample`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L258-L314)
 
-resample function.
+- Used the weights of the particles in the `particle_filter.cpp` and c++ standard libraries discrete distribution function to update particles to the Bayesian posterior distribution.
 
-Used the weights of the particles in the particle filter and c++ standard libraries discrete distribution function to update particles to the Bayesian posterior distribution.
-
-particle filter evaluation
+#
+Particle Filter Evaluation
 
 Evaluate the particle filter by calculating the weighted error. This function takes the ground truth position at a particular time step as input and calculates the weighted error of the particle filter using the weights of each particle.
-
-To build and run the code, open a terminal and go to the localization particle filter home directory, and type build.sh and then execute run.sh to run particle filter.
