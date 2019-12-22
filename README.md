@@ -82,3 +82,53 @@ After weights update for each particle, resample the particles with probability 
 Project Code
 
 
+`main.cpp`
+
+This file runs particle filter as well as measure its runtime and calculate the weighted error at each time step.
+
+Set the number of particles in the filter. M is the number of particles to draw. Set the uncertainties for the different measurements.
+
+Next the main function reads in the math data, the control data, and the observation data for each time step.
+
+In this for loop, implemented one step of particle filter.
+
+At the end of each time step, calculated and printed out the weighted error.
+
+Finally, after the particle filter has gone through the entire driving sequence, the main function will calculate the runtime for the filter.
+
+`particlefilter.cpp`
+
+Implemented most of the particle filter code in `particlefilter.cpp`. This file contains all of the implementations of the functions of the particle filter class.
+
+init.
+
+This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
+
+It then samples from a Gaussian distribution centered around these measurements to initialize all the particles. It initializes all particle weights to 1.
+
+For further details, access files `particle_struct` and `particle_filter.h`
+
+The particle filter class has an internal structure of particles that is updated. So nothing is returned from this function.
+
+`prediction`
+
+This function takes as input the amount of time between time steps, the velocity and yaw rate measurement uncertainties, and the current time step velocity and yaw rate measurements. Using these measurements, it updated each particle's position estimates and accounted for sensor noise by adding Gaussian noise. Added Gaussian noise by sampling from a Gaussion distribution with mean equal to the updated particle position, and standard deviation equal to the standard deviation of the measurements.
+
+data association
+The data association function here takes as input two vectors of landmark obs objects. Access the definition for this struct in helperfunctions.h. The first vector is the prediction measurements between one particular particle and all of the map landmarks within sensor range. Th other vector here is the actual landmark measurements gathered from the LIDAR. This function accomplishes nearest neighbor data association and assign each sensor observation the map landmark ID associated with it.
+
+update weights function
+
+This function takes the range of the sensor, the landmark measurement uncertainties, a vector of landmark measurements, and the map landmarks as input.
+
+The first step was to predict measurements to all the map landmarks within sensor range for each particle. Use the predicted landmark measurements, and data association function to associate the sensor measurements to map landmarks. These associations would be necessary to calculate the new weight of each particle by using the multivariate Gaussian probability density function. As a final step, to normalize these weights so that they would be in the range 0 to 1. Use these weights as probabilities for resampling.
+
+resample function.
+
+Used the weights of the particles in the particle filter and c++ standard libraries discrete distribution function to update particles to the Bayesian posterior distribution.
+
+particle filter evaluation
+
+Evaluate the particle filter by calculating the weighted error. This function takes the ground truth position at a particular time step as input and calculates the weighted error of the particle filter using the weights of each particle.
+
+To build and run the code, open a terminal and go to the localization particle filter home directory, and type build.sh and then execute run.sh to run particle filter.
