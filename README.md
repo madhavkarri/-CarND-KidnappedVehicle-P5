@@ -93,11 +93,11 @@ At the end of each time step, calculated and printed out the weighted error.
 Finally, after the particle filter has gone through the entire driving sequence, the main function will calculate the runtime for the filter.
 
 #
-[`particlefilter.cpp`](./CarND-Kidnapped-Vehicle-Project/src/particlefilter.cpp)
+[`particle_filter.cpp`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp)
 
 Implemented most of the particle filter code in `particlefilter.cpp`. This file contains all of the implementations of the functions of the particle filter class.
 
-[`init`](./CarND-Kidnapped-Vehicle-Project/src/particlefilter.cpp#L30-L67)
+[`init`](./CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp#L30-L67)
 
 This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
 
