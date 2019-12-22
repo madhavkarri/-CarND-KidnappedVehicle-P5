@@ -81,8 +81,7 @@ After weights update for each particle, resample the particles with probability 
 #
 Project Code
 
-
-`main.cpp`
+[`main.cpp`](./CarND-Kidnapped-Vehicle-Project/src/main.cpp)
 
 This file runs particle filter as well as measure its runtime and calculate the weighted error at each time step.
 
