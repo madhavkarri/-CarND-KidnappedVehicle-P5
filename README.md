@@ -79,27 +79,25 @@ For the project, it was assumed, variables in the sensor measurement are indepen
 After weights update for each particle, resample the particles with probability proportional to these weights.
 
 #
+#
 Project Code
 
 [`main.cpp`](./CarND-Kidnapped-Vehicle-Project/src/main.cpp)
 
-This file runs particle filter as well as measure its runtime and calculate the weighted error at each time step.
-
-Set the number of particles in the filter. M is the number of particles to draw. Set the uncertainties for the different measurements.
-
-Next the main function reads in the math data, the control data, and the observation data for each time step.
-
-In this for loop, implemented one step of particle filter.
+- This file runs particle filter as well as measure its runtime and calculate the weighted error at each time step.
+- Set the uncertainties for the different measurements.
+- Next the main function reads in the map data for each time step.
 
 At the end of each time step, calculated and printed out the weighted error.
 
 Finally, after the particle filter has gone through the entire driving sequence, the main function will calculate the runtime for the filter.
 
-`particlefilter.cpp`
+#
+[`particlefilter.cpp`](./CarND-Kidnapped-Vehicle-Project/src/particlefilter.cpp)
 
 Implemented most of the particle filter code in `particlefilter.cpp`. This file contains all of the implementations of the functions of the particle filter class.
 
-init.
+[`init`](./CarND-Kidnapped-Vehicle-Project/src/particlefilter.cpp/#L30-L67)
 
 This function takes as input a GPS position, an initial heading estimate, and an array of uncertainties for these measurements.
 
